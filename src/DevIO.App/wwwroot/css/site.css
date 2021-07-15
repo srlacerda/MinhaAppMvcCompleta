@@ -35,3 +35,10 @@ body {
         display: none;
     }
 }
+
+input,
+select,
+color-profile,
+textarea {
+    max-width: 400px;
+}
