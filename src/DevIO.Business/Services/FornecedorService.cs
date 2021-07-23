@@ -8,7 +8,7 @@ using DevIO.Business.Models.Validations;
 namespace DevIO.Business.Services
 {
     public class FornecedorService : BaseService, IFornecedorService
-    {
+    { 
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IEnderecoRepository _enderecoRepository;
 
