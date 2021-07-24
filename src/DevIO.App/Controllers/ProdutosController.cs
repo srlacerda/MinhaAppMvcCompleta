@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DevIO.App.Extensions;
 using DevIO.App.ViewModels;
 using DevIO.Business.Interfaces;
 using DevIO.Business.Models;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace DevIO.App.Controllers
 {
+    [Authorize]
     public class ProdutosController : BaseController
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -52,7 +54,7 @@ namespace DevIO.App.Controllers
             return View(produtoViewModel);
         }
 
-        //[ClaimsAuthorize("Produto", "Adicionar")]
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [Route("novo-produto")]
         public async Task<IActionResult> Create()
         {
@@ -61,7 +63,7 @@ namespace DevIO.App.Controllers
         }
 
 
-        //[ClaimsAuthorize("Produto", "Adicionar")]
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [Route("novo-produto")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -84,7 +86,7 @@ namespace DevIO.App.Controllers
             return RedirectToAction("Index");
         }
 
-        //[ClaimsAuthorize("Produto", "Editar")]
+        [ClaimsAuthorize("Produto", "Editar")]
         [Route("editar-produto/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -98,7 +100,7 @@ namespace DevIO.App.Controllers
             return View(produtoViewModel);
         }
 
-        //[ClaimsAuthorize("Produto", "Editar")]
+        [ClaimsAuthorize("Produto", "Editar")]
         [Route("editar-produto/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -134,7 +136,7 @@ namespace DevIO.App.Controllers
             return RedirectToAction("Index");
         }
 
-        //[ClaimsAuthorize("Produto", "Excluir")]
+        [ClaimsAuthorize("Produto", "Excluir")]
         [Route("excluir-produto/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -148,7 +150,7 @@ namespace DevIO.App.Controllers
             return View(produto);
         }
 
-        //[ClaimsAuthorize("Produto", "Excluir")]
+        [ClaimsAuthorize("Produto", "Excluir")]
         [Route("excluir-produto/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

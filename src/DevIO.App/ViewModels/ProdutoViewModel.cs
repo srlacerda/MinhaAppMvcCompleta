@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using DevIO.App.Extensions;
 //using DevIO.App.Extensions;
 using DevIO.Business.Models;
@@ -27,6 +28,7 @@ namespace DevIO.App.ViewModels
         [StringLength(1000, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Descricao { get; set; }
 
+        [NotMapped]
         [DisplayName("Imagem do Produto")]
         public IFormFile ImagemUpload { get; set; }
 
