@@ -162,6 +162,7 @@ namespace DevIO.App.Controllers
         [Route("atualizar-endereco-fornecedor/{id:guid}")]
         [HttpPost]
         
+
         public async Task<IActionResult> AtualizarEndereco(FornecedorViewModel fornecedorViewModel)
         {
             ModelState.Remove("Nome");
